@@ -16,6 +16,8 @@ Usage
 ---
 
 ```python
+from qtdigest import Tdigest
+
 t = Tdigest()
 for i in xrange(1000):
     t.push(random())
