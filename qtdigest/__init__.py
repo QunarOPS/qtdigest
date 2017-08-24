@@ -54,6 +54,30 @@ class Tdigest(object):
         return lower.mean + (cumn - lower.cumn) * (upper.mean - lower.mean) / \
             (upper.cumn - lower.cumn)
 
+    def serialize(self):
+        result = '%s~%s~%s~' % (self.delta, self.K, self.size())
+        if self.size() == 0:
+            return result
+        self._cumulate(True)
+        means = []
+        counts = []
+        for c in self.centroids.values():
+            means.append(str(c.mean))
+            counts.append(str(c.n))
+        return '%s%s~%s' % (result, '~'.join(means), '~'.join(counts))
+
+    @classmethod
+    def deserialize(cls, serialized_str):
+        if not isinstance(serialized_str, basestring):
+            raise Exception(u'serialized_str must be str')
+        data = serialized_str.split('~')
+        t = Tdigest(delta=float(data[0]), K=int(data[1]))
+        size = int(data[2])
+        for i in xrange(size):
+            t.push(float(data[i + 3]), int(data[size + i + 3]))
+        t._cumulate(True)
+        return t
+
     def _digest(self, x, n):
         if self.size() == 0:
             self._new_centroid(x, n, 0)
