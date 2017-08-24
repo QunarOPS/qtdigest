@@ -42,7 +42,7 @@ for quantile estimation during ingest.
 * `size()`: return the count of centroids
 * `toList()`: return the list of all centroids data
 * `percentile(p)`: return the percentage of p(0..1)
-* `serialize()`: serialize tdigest instance to string, ie: 0.01~25~2~0.00064~0.0013~2~20
+* `serialize()`: serialize tdigest instance to string, ie: `0.01~25~2~0.00064~0.0013~2~20`
 * `deserialize(serialized_str)`: deserialize the serialized string to tdigest instance. it is a classmethod, so can be called by `Tdigest.deserialize(serialized_str)`
 
 
