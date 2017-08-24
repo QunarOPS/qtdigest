@@ -5,7 +5,7 @@ here = path.abspath(path.dirname(__file__))
 
 setup(
     name='qtdigest',
-    version='0.0.2',
+    version='0.1.1',
     description='python implementation of Dunning\'s T-Digest',
     url='https://github.com/QunarOPS/qtdigest',
     author='zskymn',
