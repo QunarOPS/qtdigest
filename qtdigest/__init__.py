@@ -148,5 +148,10 @@ class Tdigest(object):
 
 if __name__ == '__main__':
     t = Tdigest(K=25)
-    for i in xrange(1000000):
+    for i in xrange(1000):
         t.push(random())
+    print 'P0 = ', t.percentile(0)
+    print 'P10 = ', t.percentile(0.1)
+    print 'P50 = ', t.percentile(0.5)
+    print 'P90 = ', t.percentile(0.9)
+    print 'P100 = ', t.percentile(1.0)
