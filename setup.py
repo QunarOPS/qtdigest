@@ -5,7 +5,7 @@ here = path.abspath(path.dirname(__file__))
 
 setup(
     name='qtdigest',
-    version='0.1.1',
+    version='0.1.2',
     description='python implementation of Dunning\'s T-Digest',
     url='https://github.com/QunarOPS/qtdigest',
     author='zskymn',
@@ -19,7 +19,7 @@ setup(
         'Programming Language :: Python :: 2.7'
     ],
     packages=['qtdigest'],
-    install_requires=['bintrees'],
+    install_requires=['bintrees>=2.0.0,<=2.0.7'],
     extras_require={
         'test': ['pytest', 'pytest-cov'],
     },
