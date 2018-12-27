@@ -66,6 +66,16 @@ class Tdigest(object):
             counts.append(str(c.n))
         return '%s%s~%s' % (result, '~'.join(means), '~'.join(counts))
 
+    def simpleSerialize(self):
+        if self.size() == 0:
+            return ''
+        self._cumulate(True)
+        result = []
+        for c in self.centroids.values():
+            result.append(str(c.mean))
+            result.append(str(c.n))
+        return '~'.join(result)
+
     @classmethod
     def deserialize(cls, serialized_str):
         if not isinstance(serialized_str, basestring):
@@ -179,3 +189,11 @@ if __name__ == '__main__':
     print 'P50 = ', t.percentile(0.5)
     print 'P90 = ', t.percentile(0.9)
     print 'P100 = ', t.percentile(1.0)
+
+    t1 = Tdigest(K=25)
+    t1.push(100)
+    t1.push(200)
+    t1.push(300)
+    t1.push(400)
+    print 'serialize = ', t1.serialize()
+    print 'simpleSerialize = ', t1.simpleSerialize()
