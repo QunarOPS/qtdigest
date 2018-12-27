@@ -1,6 +1,7 @@
 *.pyc
 *.egg-info
 .venv
+.venv3
 .idea
 dist/
 .vscode/

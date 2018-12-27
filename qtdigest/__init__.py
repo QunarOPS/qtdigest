@@ -182,18 +182,18 @@ class Tdigest(object):
 
 if __name__ == '__main__':
     t = Tdigest(K=25)
-    for i in xrange(1000):
+    for i in range(1000):
         t.push(random())
-    print 'P0 = ', t.percentile(0)
-    print 'P10 = ', t.percentile(0.1)
-    print 'P50 = ', t.percentile(0.5)
-    print 'P90 = ', t.percentile(0.9)
-    print 'P100 = ', t.percentile(1.0)
+    print('P0 = ', t.percentile(0))
+    print('P10 = ', t.percentile(0.1))
+    print('P50 = ', t.percentile(0.5))
+    print('P90 = ', t.percentile(0.9))
+    print('P100 = ', t.percentile(1.0))
 
     t1 = Tdigest(K=25)
     t1.push(100)
     t1.push(200)
     t1.push(300)
     t1.push(400)
-    print 'serialize = ', t1.serialize()
-    print 'simpleSerialize = ', t1.simpleSerialize()
+    print('serialize = ', t1.serialize())
+    print('simpleSerialize = ', t1.simpleSerialize())
