@@ -3,10 +3,15 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
     name='qtdigest',
     version='0.3.0',
     description='python implementation of Dunning\'s T-Digest',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url='https://github.com/QunarOPS/qtdigest',
     author='zskymn',
     author_email='zsymn@163.com',
