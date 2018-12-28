@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='qtdigest',
-    version='0.3.0',
+    version='0.3.1',
     description='python implementation of Dunning\'s T-Digest',
     long_description=long_description,
     long_description_content_type="text/markdown",
